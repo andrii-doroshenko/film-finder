@@ -53,29 +53,23 @@ const Cast = () => {
   return (
     <>
       {credits ? (
-        <div>
-          <div>
-            <div>
-              <ListCards>
-                {credits.map(
-                  ({ id, profile_path, original_name, character }) =>
-                    profile_path && (
-                      <Card key={id}>
-                        <img
-                          src={`https://image.tmdb.org/t/p/w185${profile_path}`}
-                          width={100}
-                          height={150}
-                          alt={original_name}
-                        />
-                        <p>{original_name}</p>
-                        <p>Character: {character}</p>
-                      </Card>
-                    )
-                )}
-              </ListCards>
-            </div>
-          </div>
-        </div>
+        <ListCards>
+          {credits.map(
+            ({ id, profile_path, original_name, character }) =>
+              profile_path && (
+                <Card key={id}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w185${profile_path}`}
+                    width={100}
+                    height={150}
+                    alt={original_name}
+                  />
+                  <p>{original_name}</p>
+                  <p>Character: {character}</p>
+                </Card>
+              )
+          )}
+        </ListCards>
       ) : (
         <p>Loading...</p>
       )}

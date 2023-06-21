@@ -3,7 +3,7 @@ import Layout from './Layout';
 import Cast from './Cast';
 import Reviews from './Reviews';
 import Home from '../pages/Home';
-import Movies from '../pages/Movies';
+import Movies from '../pages/Movies/Movies';
 import NotFound from '../pages/NotFound';
 import MovieDetails from '../pages/MovieDetails';
 

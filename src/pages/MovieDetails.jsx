@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import { NavLink, Outlet } from 'react-router-dom';
+import { useParams, useLocation, NavLink, Outlet } from 'react-router-dom';
 import BackLink from '../components/BackLink';
 import fetchMovies from 'services/moviesApi';
 import styled from 'styled-components';
+
+const Image = styled.img`
+  display: block;
+  margin: 0 auto;
+`;
 
 const Section = styled.section`
   &:not(:last-child) {
@@ -31,9 +35,9 @@ const Wrapper = styled.div`
 const MovieDetails = () => {
   const [details, setDetails] = useState(null);
   const { movieId } = useParams();
-  const detailsQuery = `/movie/${movieId}`;
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
+  const detailsQuery = `/movie/${movieId}`;
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -41,10 +45,8 @@ const MovieDetails = () => {
 
       setDetails(response.data);
     };
-
     fetchDetails();
   }, [detailsQuery]);
-
   return (
     <>
       {details ? (
@@ -54,7 +56,7 @@ const MovieDetails = () => {
               <Container>
                 <BackLink to={backLinkHref}>Back</BackLink>
                 {
-                  <img
+                  <Image
                     src={`https://image.tmdb.org/t/p/w185/${details.poster_path}`}
                     width={'185'}
                     alt={details.title}

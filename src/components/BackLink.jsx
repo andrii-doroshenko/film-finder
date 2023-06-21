@@ -3,11 +3,10 @@ import { BsArrowLeft } from 'react-icons/bs';
 import styled from 'styled-components';
 
 const StyledLink = styled(Link)`
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 4px;
   color: #212121;
-  text-decoration: none;
 
   :hover {
     color: orange;

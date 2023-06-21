@@ -20,7 +20,7 @@ const Home = () => {
     <div>
       {trends ? (
         <>
-          <h1>Trending today</h1>
+          <h1>The most popular movies this week</h1>
           <ul>
             {trends.map(({ id, title }) => (
               <li key={id}>
