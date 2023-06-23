@@ -7,6 +7,7 @@ import {
   Title,
   StyledLink,
 } from './Cards.styled';
+import PropTypes from 'prop-types';
 
 const Cards = ({ movies }) => {
   const location = useLocation();
@@ -35,6 +36,16 @@ const Cards = ({ movies }) => {
       </List>
     </Container>
   );
+};
+
+Cards.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      poster_path: PropTypes.string,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Cards;

@@ -1,22 +1,25 @@
 import { useEffect, useState } from 'react';
-// import { RotatingLines } from 'react-loader-spinner'; //!todo.......
+import { useSearchParams } from 'react-router-dom';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Cards from '../../components/Cards/Cards';
 import fetchMovies from '../../services/moviesApi';
-import { Form, Input, SubmitButton } from './Movies.styled';
+import Searchbox from '../../components/SearchBox/SearchBox';
 
 const Movies = () => {
-  const [value, setValue] = useState('');
   const [queryValue, setQueryValue] = useState('');
   const [movies, setMovies] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const movieName = searchParams.get('name') ?? '';
   const fetchQuery = `/search/movie?query=${queryValue}`;
 
-  const handleChange = ({ target: { value } }) => {
-    setValue(value);
+  const updateQueryString = name => {
+    const nextParams = name !== '' ? { name: name.toLowerCase() } : {};
+    setSearchParams(nextParams);
   };
 
   const handleSubmite = e => {
     e.preventDefault();
-    setQueryValue(value);
+    setQueryValue(movieName);
   };
 
   useEffect(() => {
@@ -24,6 +27,10 @@ const Movies = () => {
 
     const fetchSearchMovies = async () => {
       const response = await fetchMovies(fetchQuery);
+
+      if (response.data.total_results === 0)
+        Notify.warning('Sorry, no matches found!');
+
       setMovies(response.data.results);
     };
 
@@ -32,18 +39,11 @@ const Movies = () => {
 
   return (
     <div>
-      <div>
-        <Form action="" autoComplete="off" onSubmit={handleSubmite}>
-          <Input
-            type="text"
-            name="searchMovies"
-            placeholder="Search movies..."
-            value={value}
-            onChange={handleChange}
-          />
-          <SubmitButton type="submit">Search</SubmitButton>
-        </Form>
-      </div>
+      <Searchbox
+        value={movieName}
+        onSubmite={handleSubmite}
+        onChange={updateQueryString}
+      />
       <div>{movies.length > 0 && <Cards movies={movies} />}</div>
     </div>
   );

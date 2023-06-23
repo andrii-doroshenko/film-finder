@@ -17,14 +17,16 @@ export const BackDrop = styled.div`
 `;
 
 export const List = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 10px;
+  align-items: stretch;
   padding: 0;
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  list-style: none;
 `;
 
 export const Item = styled.li`
+  margin: 0 auto;
   width: 185px;
   padding: 10px;
   border-radius: 4px;

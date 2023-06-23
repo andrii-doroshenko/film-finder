@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { BsArrowLeft } from 'react-icons/bs';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -20,6 +21,11 @@ const BackLink = ({ to, children }) => {
       {children}
     </StyledLink>
   );
+};
+
+BackLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default BackLink;

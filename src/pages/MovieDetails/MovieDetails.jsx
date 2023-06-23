@@ -1,36 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useParams, useLocation, NavLink, Outlet } from 'react-router-dom';
-import BackLink from '../components/BackLink';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
+import BackLink from '../../components/BackLink/BackLink';
 import fetchMovies from 'services/moviesApi';
-import styled from 'styled-components';
-
-const Image = styled.img`
-  display: block;
-  margin: 0 auto;
-`;
-
-const Section = styled.section`
-  &:not(:last-child) {
-    border-bottom: 2px solid lightgray;
-  }
-`;
-
-const Container = styled.div`
-  padding: 15px;
-`;
-
-const StyledLink = styled(NavLink)`
-  color: #212121;
-  &.active {
-    color: orange;
-  }
-`;
-
-const Wrapper = styled.div`
-  @media screen and (min-width: 420px) {
-    display: flex;
-  }
-`;
+import {
+  Image,
+  Section,
+  Container,
+  StyledLink,
+  Wrapper,
+} from './MovieDetails.styled';
+import isLoading from 'utils/Loading'; //!todo
 
 const MovieDetails = () => {
   const [details, setDetails] = useState(null);
