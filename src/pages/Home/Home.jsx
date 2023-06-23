@@ -20,18 +20,22 @@ const Home = () => {
 
   return (
     <div>
-      <h1>The most popular movies this week</h1>
-      <ul>
-        {trends
-          ? trends.map(({ id, title }) => (
+      {trends ? (
+        <>
+          <h1>The most popular movies this week:</h1>
+          <ul>
+            {trends.map(({ id, title }) => (
               <li key={id}>
                 <Link to={`/movies/${id}`} state={{ from: location }}>
                   {title}
                 </Link>
               </li>
-            ))
-          : isLoading(true)}
-      </ul>
+            ))}
+          </ul>
+        </>
+      ) : (
+        isLoading(true)
+      )}
     </div>
   );
 };

@@ -24,7 +24,6 @@ const BackLink = ({ to, children }) => {
 };
 
 BackLink.propTypes = {
-  to: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 

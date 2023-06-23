@@ -9,7 +9,7 @@ import {
   StyledLink,
   Wrapper,
 } from './MovieDetails.styled';
-import isLoading from 'utils/Loading'; //!todo
+import isLoading from 'utils/Loading';
 
 const MovieDetails = () => {
   const [details, setDetails] = useState(null);
@@ -19,16 +19,19 @@ const MovieDetails = () => {
   const detailsQuery = `/movie/${movieId}`;
 
   useEffect(() => {
+    isLoading(true);
+
     const fetchDetails = async () => {
       const response = await fetchMovies(detailsQuery);
 
       setDetails(response.data);
+      isLoading(false);
     };
     fetchDetails();
   }, [detailsQuery]);
   return (
     <>
-      {details ? (
+      {details && (
         <>
           <Section>
             <Wrapper>
@@ -53,7 +56,6 @@ const MovieDetails = () => {
               </Container>
             </Wrapper>
           </Section>
-
           <Section>
             <Container>
               <b>Additional information</b>
@@ -67,15 +69,12 @@ const MovieDetails = () => {
               </ul>
             </Container>
           </Section>
-
           <Section>
             <Container>
               <Outlet />
             </Container>
           </Section>
         </>
-      ) : (
-        <p>Loading ...</p>
       )}
     </>
   );

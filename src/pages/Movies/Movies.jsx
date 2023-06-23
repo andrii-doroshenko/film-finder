@@ -4,6 +4,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Cards from '../../components/Cards/Cards';
 import fetchMovies from '../../services/moviesApi';
 import Searchbox from '../../components/SearchBox/SearchBox';
+import isLoading from 'utils/Loading';
 
 const Movies = () => {
   const [queryValue, setQueryValue] = useState('');
@@ -25,6 +26,8 @@ const Movies = () => {
   useEffect(() => {
     if (!queryValue.trim()) return;
 
+    isLoading(true);
+
     const fetchSearchMovies = async () => {
       const response = await fetchMovies(fetchQuery);
 
@@ -32,6 +35,7 @@ const Movies = () => {
         Notify.warning('Sorry, no matches found!');
 
       setMovies(response.data.results);
+      isLoading(false);
     };
 
     fetchSearchMovies();
