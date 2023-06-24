@@ -6,9 +6,9 @@ import { ListCards, Card } from './Cast.styled';
 const Cast = () => {
   const [credits, setCredits] = useState(null);
   const { movieId } = useParams();
-  const detailsQuery = `/movie/${movieId}/credits`;
 
   useEffect(() => {
+    const detailsQuery = `/movie/${movieId}/credits`;
     const fetchCredits = async () => {
       const response = await fetchMovies(detailsQuery);
 
@@ -16,7 +16,7 @@ const Cast = () => {
     };
 
     fetchCredits();
-  }, [detailsQuery]);
+  }, [movieId]);
 
   return (
     <>

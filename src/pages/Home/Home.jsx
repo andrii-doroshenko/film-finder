@@ -11,8 +11,8 @@ const Home = () => {
   useEffect(() => {
     const fetchTrends = async () => {
       const response = await fetchMovies(trendsQuery);
-      setTrends(response.data.results);
       isLoading(false);
+      setTrends(response.data.results);
     };
 
     fetchTrends();

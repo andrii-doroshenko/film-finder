@@ -16,19 +16,19 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
-  const detailsQuery = `/movie/${movieId}`;
 
   useEffect(() => {
     isLoading(true);
+    const detailsQuery = `/movie/${movieId}`;
 
     const fetchDetails = async () => {
       const response = await fetchMovies(detailsQuery);
+      isLoading(false);
 
       setDetails(response.data);
-      isLoading(false);
     };
     fetchDetails();
-  }, [detailsQuery]);
+  }, [movieId]);
   return (
     <>
       {details && (

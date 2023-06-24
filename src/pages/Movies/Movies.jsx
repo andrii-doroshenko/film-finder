@@ -11,7 +11,6 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('name') ?? '';
-  const fetchQuery = `/search/movie?query=${queryValue}`;
 
   const updateQueryString = name => {
     const nextParams = name !== '' ? { name: name.toLowerCase() } : {};
@@ -25,7 +24,7 @@ const Movies = () => {
 
   useEffect(() => {
     if (!queryValue.trim()) return;
-
+    const fetchQuery = `/search/movie?query=${queryValue}`;
     isLoading(true);
 
     const fetchSearchMovies = async () => {
@@ -33,13 +32,13 @@ const Movies = () => {
 
       if (response.data.total_results === 0)
         Notify.warning('Sorry, no matches found!');
+      isLoading(false);
 
       setMovies(response.data.results);
-      isLoading(false);
     };
 
     fetchSearchMovies();
-  }, [queryValue, fetchQuery]);
+  }, [queryValue]);
 
   return (
     <div>

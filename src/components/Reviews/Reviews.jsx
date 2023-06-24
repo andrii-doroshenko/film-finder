@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom';
 const Reviews = () => {
   const [reviews, setReviews] = useState(null);
   const { movieId } = useParams();
-  const detailsQuery = `/movie/${movieId}/reviews`;
 
   useEffect(() => {
+    const detailsQuery = `/movie/${movieId}/reviews`;
     const fetchCredits = async () => {
       const response = await fetchMovies(detailsQuery);
 
@@ -15,7 +15,7 @@ const Reviews = () => {
     };
 
     fetchCredits();
-  }, [detailsQuery]);
+  }, [movieId]);
 
   return (
     <>

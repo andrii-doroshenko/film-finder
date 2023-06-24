@@ -5,7 +5,10 @@ const isLoading = toggle => {
   if (!toggle) {
     return Loading.remove();
   } else {
-    return Loading.standard('Loading...');
+    return Loading.standard({
+      backgroundColor: 'transparent',
+      svgColor: 'orange',
+    });
   }
 };
 
