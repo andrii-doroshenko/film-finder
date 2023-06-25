@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams, useLocation, Outlet } from 'react-router-dom';
 import BackLink from '../../components/BackLink/BackLink';
 import fetchMovies from 'services/moviesApi';
@@ -15,28 +15,28 @@ const MovieDetails = () => {
   const [details, setDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
+  const backLinkHref = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     isLoading(true);
-    const detailsQuery = `/movie/${movieId}`;
 
     const fetchDetails = async () => {
-      const response = await fetchMovies(detailsQuery);
+      const response = await fetchMovies(`/movie/${movieId}`);
       isLoading(false);
 
       setDetails(response.data);
     };
+
     fetchDetails();
   }, [movieId]);
   return (
     <>
       {details && (
-        <>
+        <div>
           <Section>
             <Wrapper>
               <Container>
-                <BackLink to={backLinkHref}>Back</BackLink>
+                <BackLink to={backLinkHref.current}>Back</BackLink>
                 {
                   <Image
                     src={`https://image.tmdb.org/t/p/w185/${details.poster_path}`}
@@ -74,7 +74,7 @@ const MovieDetails = () => {
               <Outlet />
             </Container>
           </Section>
-        </>
+        </div>
       )}
     </>
   );

@@ -7,10 +7,10 @@ import Searchbox from '../../components/SearchBox/SearchBox';
 import isLoading from 'utils/Loading';
 
 const Movies = () => {
-  const [queryValue, setQueryValue] = useState('');
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('name') ?? '';
+  const [queryValue, setQueryValue] = useState(movieName);
 
   const updateQueryString = name => {
     const nextParams = name !== '' ? { name: name.toLowerCase() } : {};
@@ -24,11 +24,10 @@ const Movies = () => {
 
   useEffect(() => {
     if (!queryValue.trim()) return;
-    const fetchQuery = `/search/movie?query=${queryValue}`;
     isLoading(true);
 
     const fetchSearchMovies = async () => {
-      const response = await fetchMovies(fetchQuery);
+      const response = await fetchMovies(`/search/movie?query=${queryValue}`);
 
       if (response.data.total_results === 0)
         Notify.warning('Sorry, no matches found!');

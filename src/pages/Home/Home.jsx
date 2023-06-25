@@ -5,12 +5,11 @@ import isLoading from 'utils/Loading';
 
 const Home = () => {
   const [trends, setTrends] = useState(null);
-  const trendsQuery = '/trending/movie/week';
   const location = useLocation();
 
   useEffect(() => {
     const fetchTrends = async () => {
-      const response = await fetchMovies(trendsQuery);
+      const response = await fetchMovies('/trending/movie/week');
       isLoading(false);
       setTrends(response.data.results);
     };
