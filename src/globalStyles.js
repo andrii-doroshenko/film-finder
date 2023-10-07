@@ -1,4 +1,7 @@
-@import-normalize; /* bring in normalize.css styles */
+import { createGlobalStyle } from 'styled-components';
+import 'styled-normalize';
+
+const GlobalStyle = createGlobalStyle`
 
 body {
   margin: 0;
@@ -19,6 +22,9 @@ a:hover {
   text-decoration: underline;
 }
 
-h1 {
-  padding-left: 15px;
+img {
+    width: 100%;
 }
+`;
+
+export default GlobalStyle;

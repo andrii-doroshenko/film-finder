@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import fetchMovies from 'services/moviesApi';
 import isLoading from 'utils/Loading';
+import MoviesList from 'components/MoviesList/MoviesList';
+import { Container } from './Home.styled';
 
 const Home = () => {
   const [trends, setTrends] = useState(null);
-  const location = useLocation();
 
   useEffect(() => {
     const fetchTrends = async () => {
+      isLoading(true);
       const response = await fetchMovies('/trending/movie/week');
+
+      if (response.data.results === 0) {
+        isLoading(false);
+        return;
+      }
+
       isLoading(false);
       setTrends(response.data.results);
     };
@@ -20,20 +27,12 @@ const Home = () => {
   return (
     <div>
       {trends ? (
-        <>
+        <Container>
           <h1>The most popular movies this week:</h1>
-          <ul>
-            {trends.map(({ id, title }) => (
-              <li key={id}>
-                <Link to={`/movies/${id}`} state={{ from: location }}>
-                  {title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </>
+          <MoviesList movies={trends} />
+        </Container>
       ) : (
-        isLoading(true)
+        <p>No results</p>
       )}
     </div>
   );
