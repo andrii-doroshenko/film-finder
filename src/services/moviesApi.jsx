@@ -1,15 +1,14 @@
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-const BASE_URL = 'https://api.themoviedb.org/3';
-const API_KEY = 'eda83a71773ad3438eacfd6f8cef19c1';
+const { REACT_APP_BASE_URL, REACT_APP_API_KEY } = process.env;
 
 const fetchMovies = async query => {
   try {
-    const response = await axios.get(`${BASE_URL}${query}`, {
+    const response = await axios.get(`${REACT_APP_BASE_URL}${query}`, {
       params: {
         method: 'get',
-        api_key: API_KEY,
+        api_key: REACT_APP_API_KEY,
       },
     });
 
