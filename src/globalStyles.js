@@ -14,16 +14,8 @@ body {
 }
 
 a {
-  color: blue;
+  color: #212121;
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-img {
-    width: 100%;
 }
 `;
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import fetchMovies from 'services/moviesApi';
 import isLoading from 'utils/Loading';
 import MoviesList from 'components/MoviesList/MoviesList';
-import { Container } from './Home.styled';
+import { Container, Title } from './Home.styled';
 
 const Home = () => {
   const [trends, setTrends] = useState(null);
@@ -26,13 +26,11 @@ const Home = () => {
 
   return (
     <div>
-      {trends ? (
+      {trends && (
         <Container>
-          <h1>The most popular movies this week:</h1>
+          <Title>Popular movies this week</Title>
           <MoviesList movies={trends} />
         </Container>
-      ) : (
-        <p>No results</p>
       )}
     </div>
   );

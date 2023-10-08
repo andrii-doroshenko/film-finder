@@ -2,10 +2,12 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Header = styled.div`
-  margin-bottom: 15px;
+  background: #333;
 `;
 
 export const Container = styled.div`
+  display: flex;
+  align-items: baseline;
   padding: 0 15px;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
 `;
@@ -22,7 +24,8 @@ export const Item = styled.li`
 
 export const StyledLink = styled(NavLink)`
   display: inline-block;
-  color: #212121;
+  font-weight: 500;
+  color: #fff;
   padding: 15px;
 
   &.active {

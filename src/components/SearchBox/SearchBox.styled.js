@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
+  margin-top: 15px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
 `;
 
 export const Input = styled.input`

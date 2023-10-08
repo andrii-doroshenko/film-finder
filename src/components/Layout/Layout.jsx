@@ -1,11 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import { Container, Header, List, Item, StyledLink } from '../App.styled';
+import Logo from 'components/Logo/Logo';
 
 const Layout = () => {
   return (
     <>
       <Header>
         <Container>
+          <Logo />
           <nav>
             <List>
               <Item>
