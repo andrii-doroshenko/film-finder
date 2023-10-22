@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/goit-react-hw-05-movies/static/js/main.26b9a453.js",
-    "static/js/41.fcadd892.chunk.js": "/goit-react-hw-05-movies/static/js/41.fcadd892.chunk.js",
-    "static/js/474.4b313c57.chunk.js": "/goit-react-hw-05-movies/static/js/474.4b313c57.chunk.js",
-    "static/js/765.d3b06ccf.chunk.js": "/goit-react-hw-05-movies/static/js/765.d3b06ccf.chunk.js",
-    "static/js/742.6e0c1b7a.chunk.js": "/goit-react-hw-05-movies/static/js/742.6e0c1b7a.chunk.js",
-    "static/js/185.5b3aa9e3.chunk.js": "/goit-react-hw-05-movies/static/js/185.5b3aa9e3.chunk.js",
-    "index.html": "/goit-react-hw-05-movies/index.html",
-    "main.26b9a453.js.map": "/goit-react-hw-05-movies/static/js/main.26b9a453.js.map",
-    "41.fcadd892.chunk.js.map": "/goit-react-hw-05-movies/static/js/41.fcadd892.chunk.js.map",
-    "474.4b313c57.chunk.js.map": "/goit-react-hw-05-movies/static/js/474.4b313c57.chunk.js.map",
-    "765.d3b06ccf.chunk.js.map": "/goit-react-hw-05-movies/static/js/765.d3b06ccf.chunk.js.map",
-    "742.6e0c1b7a.chunk.js.map": "/goit-react-hw-05-movies/static/js/742.6e0c1b7a.chunk.js.map",
-    "185.5b3aa9e3.chunk.js.map": "/goit-react-hw-05-movies/static/js/185.5b3aa9e3.chunk.js.map"
+    "main.js": "/film-finder/static/js/main.d446af4d.js",
+    "static/js/41.057e0515.chunk.js": "/film-finder/static/js/41.057e0515.chunk.js",
+    "static/js/474.2535e775.chunk.js": "/film-finder/static/js/474.2535e775.chunk.js",
+    "static/js/765.06db2fd1.chunk.js": "/film-finder/static/js/765.06db2fd1.chunk.js",
+    "static/js/742.6e3d5d2d.chunk.js": "/film-finder/static/js/742.6e3d5d2d.chunk.js",
+    "static/js/185.0ecd6a42.chunk.js": "/film-finder/static/js/185.0ecd6a42.chunk.js",
+    "index.html": "/film-finder/index.html",
+    "main.d446af4d.js.map": "/film-finder/static/js/main.d446af4d.js.map",
+    "41.057e0515.chunk.js.map": "/film-finder/static/js/41.057e0515.chunk.js.map",
+    "474.2535e775.chunk.js.map": "/film-finder/static/js/474.2535e775.chunk.js.map",
+    "765.06db2fd1.chunk.js.map": "/film-finder/static/js/765.06db2fd1.chunk.js.map",
+    "742.6e3d5d2d.chunk.js.map": "/film-finder/static/js/742.6e3d5d2d.chunk.js.map",
+    "185.0ecd6a42.chunk.js.map": "/film-finder/static/js/185.0ecd6a42.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.26b9a453.js"
+    "static/js/main.d446af4d.js"
   ]
 }
