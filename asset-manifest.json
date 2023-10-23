@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/film-finder/static/js/main.d446af4d.js",
+    "main.js": "/film-finder/static/js/main.d99c95db.js",
     "static/js/41.057e0515.chunk.js": "/film-finder/static/js/41.057e0515.chunk.js",
     "static/js/474.2535e775.chunk.js": "/film-finder/static/js/474.2535e775.chunk.js",
     "static/js/765.06db2fd1.chunk.js": "/film-finder/static/js/765.06db2fd1.chunk.js",
     "static/js/742.6e3d5d2d.chunk.js": "/film-finder/static/js/742.6e3d5d2d.chunk.js",
     "static/js/185.0ecd6a42.chunk.js": "/film-finder/static/js/185.0ecd6a42.chunk.js",
     "index.html": "/film-finder/index.html",
-    "main.d446af4d.js.map": "/film-finder/static/js/main.d446af4d.js.map",
+    "main.d99c95db.js.map": "/film-finder/static/js/main.d99c95db.js.map",
     "41.057e0515.chunk.js.map": "/film-finder/static/js/41.057e0515.chunk.js.map",
     "474.2535e775.chunk.js.map": "/film-finder/static/js/474.2535e775.chunk.js.map",
     "765.06db2fd1.chunk.js.map": "/film-finder/static/js/765.06db2fd1.chunk.js.map",
@@ -15,6 +15,6 @@
     "185.0ecd6a42.chunk.js.map": "/film-finder/static/js/185.0ecd6a42.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.d446af4d.js"
+    "static/js/main.d99c95db.js"
   ]
 }
