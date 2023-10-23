@@ -15,7 +15,8 @@ export const Container = styled.div`
 `;
 
 export const Nav = styled.nav`
-margin-left: auto`
+  margin-left: auto;
+`;
 
 export const List = styled.ul`
   padding: 0;
@@ -31,6 +32,10 @@ export const StyledLink = styled(NavLink)`
   font-weight: 500;
   color: #fff;
   padding: 15px;
+
+  &:hover {
+    color: orange;
+  }
 
   &.active {
     color: orange;

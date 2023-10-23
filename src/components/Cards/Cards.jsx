@@ -8,6 +8,7 @@ import {
   StyledLink,
 } from './Cards.styled';
 import PropTypes from 'prop-types';
+import Logo from 'components/Logo/Logo';
 
 const Cards = ({ movies }) => {
   const location = useLocation();
@@ -17,21 +18,28 @@ const Cards = ({ movies }) => {
       <p>Here are the movies for your search:</p>
       <List>
         {movies.map(({ id, poster_path, title }) => (
-          <StyledLink key={id} to={`/movies/${id}`} state={{ from: location }}>
-            <Item>
+          <Item>
+            <StyledLink
+              key={id}
+              to={`/movies/${id}`}
+              state={{ from: location }}
+            >
               {poster_path ? (
                 <img
                   src={`https://image.tmdb.org/t/p/w185/${poster_path}`}
                   width={'185'}
                   height={'278'}
                   alt={title}
+                  style={{ border: '1px solid #ddd' }}
                 />
               ) : (
-                <BackDrop>No image</BackDrop>
+                <BackDrop>
+                  <Logo />
+                </BackDrop>
               )}
               <Title>{title}</Title>
-            </Item>
-          </StyledLink>
+            </StyledLink>
+          </Item>
         ))}
       </List>
     </Container>
