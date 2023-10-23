@@ -8,6 +8,12 @@ import {
   Nav,
 } from 'components/App.styled';
 import Logo from 'components/Logo/Logo';
+import styled from 'styled-components';
+
+const LayoutInner = styled.section`
+  max-width: 1200px;
+  margin: 0 auto;
+`
 
 const Layout = () => {
   return (
@@ -28,7 +34,9 @@ const Layout = () => {
         </Container>
       </Header>
       <main>
-        <Outlet />
+        <LayoutInner>
+          <Outlet />
+        </LayoutInner>
       </main>
     </>
   );
