@@ -2,6 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 import 'styled-normalize';
 
 const GlobalStyle = createGlobalStyle`
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;

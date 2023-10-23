@@ -1,6 +1,19 @@
 import { Outlet } from 'react-router-dom';
-import { Container, Header, List, Item, StyledLink } from '../App.styled';
+import {
+  Container,
+  Header,
+  List,
+  Item,
+  StyledLink,
+  Nav,
+} from 'components/App.styled';
 import Logo from 'components/Logo/Logo';
+import styled from 'styled-components';
+
+const LayoutInner = styled.section`
+  max-width: 1200px;
+  margin: 0 auto;
+`
 
 const Layout = () => {
   return (
@@ -8,7 +21,7 @@ const Layout = () => {
       <Header>
         <Container>
           <Logo />
-          <nav>
+          <Nav>
             <List>
               <Item>
                 <StyledLink to="/">Home</StyledLink>
@@ -17,11 +30,13 @@ const Layout = () => {
                 <StyledLink to="/movies">Movies</StyledLink>
               </Item>
             </List>
-          </nav>
+          </Nav>
         </Container>
       </Header>
       <main>
-        <Outlet />
+        <LayoutInner>
+          <Outlet />
+        </LayoutInner>
       </main>
     </>
   );
