@@ -1,5 +1,12 @@
 import { Outlet } from 'react-router-dom';
-import { Container, Header, List, Item, StyledLink } from '../App.styled';
+import {
+  Container,
+  Header,
+  List,
+  Item,
+  StyledLink,
+  Nav,
+} from 'components/App.styled';
 import Logo from 'components/Logo/Logo';
 
 const Layout = () => {
@@ -8,7 +15,7 @@ const Layout = () => {
       <Header>
         <Container>
           <Logo />
-          <nav>
+          <Nav>
             <List>
               <Item>
                 <StyledLink to="/">Home</StyledLink>
@@ -17,7 +24,7 @@ const Layout = () => {
                 <StyledLink to="/movies">Movies</StyledLink>
               </Item>
             </List>
-          </nav>
+          </Nav>
         </Container>
       </Header>
       <main>
