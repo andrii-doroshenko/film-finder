@@ -10,6 +10,7 @@ import {
   Wrapper,
 } from './MovieDetails.styled';
 import isLoading from 'utils/Loading';
+import VideoYouTube from 'components/Trailer/Trailer';
 
 const MovieDetails = () => {
   const [details, setDetails] = useState(null);
@@ -45,7 +46,6 @@ const MovieDetails = () => {
                   />
                 }
               </Container>
-
               <Container>
                 <h2>{details.title}</h2>
                 <p>User score: {Math.round(details.vote_average)} / 10</p>
@@ -55,6 +55,10 @@ const MovieDetails = () => {
                 <p>{details.genres.map(({ name }) => name).join(', ')}</p>
               </Container>
             </Wrapper>
+          </Section>
+
+          <Section>
+            <VideoYouTube id={'DvJO4UZN_-w'} />
           </Section>
           <Section>
             <Container>
