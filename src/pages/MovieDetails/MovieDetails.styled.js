@@ -18,6 +18,7 @@ export const Container = styled.div`
 
 export const StyledLink = styled(NavLink)`
   color: #212121;
+  
   &.active {
     color: orange;
   }
