@@ -8,13 +8,14 @@ import {
   Container,
   StyledLink,
   Wrapper,
+  IframeBackdrop,
+  PlayIcon,
+  StyledLinkTrailer,
 } from './MovieDetails.styled';
 import isLoading from 'utils/Loading';
-import VideoYouTube from 'components/Trailer/Trailer';
 
 const MovieDetails = () => {
   const [details, setDetails] = useState(null);
-  const [trailerKey, setTrailerKey] = useState('');
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? '/');
@@ -24,32 +25,12 @@ const MovieDetails = () => {
 
     const fetchDetails = async () => {
       const response = await fetchMovies(`/movie/${movieId}`);
-
       isLoading(false);
+
       setDetails(response.data);
     };
 
-    //закончил добівать key відео
-    const fetchTrailer = async () => {
-      const { data } = await fetchMovies(`/movie/${movieId}/videos`);
-
-      if (
-        data.results.length < 1 ||
-        !data.results.some(item => item.type === 'Trailer')
-      ) {
-        console.log('No trailer results');
-        return;
-      }
-
-      const filteredResult = data.results.filter(
-        result => result.type === 'Trailer'
-      );
-
-      setTrailerKey(filteredResult[0].key);
-    };
-
     fetchDetails();
-    fetchTrailer();
   }, [movieId]);
   return (
     <>
@@ -78,8 +59,18 @@ const MovieDetails = () => {
             </Wrapper>
           </Section>
 
-          <Section>
-            <VideoYouTube id={trailerKey} />
+          <Section $centered>
+            <StyledLinkTrailer
+              to={'play'}
+              id={movieId}
+              state={{ from: location }}
+            >
+              <IframeBackdrop
+                $imageUrl={`https://image.tmdb.org/t/p/w500/${details.backdrop_path}`}
+              >
+                <PlayIcon />
+              </IframeBackdrop>
+            </StyledLinkTrailer>
           </Section>
 
           <Section>
